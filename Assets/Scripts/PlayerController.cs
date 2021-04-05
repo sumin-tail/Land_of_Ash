@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //스피드랑 점프 스케일 적용하기
     public float speed = 0f;
     public Rigidbody2D rb;
     public float jump;
