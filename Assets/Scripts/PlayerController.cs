@@ -7,18 +7,16 @@ public class PlayerController : MonoBehaviour
     //스피드랑 점프 스케일 적용하기
     public float speed = 4f;
     public float jump = 15f;
-    public GameManager gameManager;
     //리지드 바디 설정
     Rigidbody2D rb;
     //스프라이트 렌더 설정
     SpriteRenderer spriteRenderer;
 
-
     void Awake()
     {
         //해당되는 게임 컴포넌트의 리지드 바디를 가져옴
         rb = GetComponent<Rigidbody2D>();
-        //렌더 가져옴
+        //게임 컴포넌트의 렌더 가져옴
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -64,7 +62,7 @@ public class PlayerController : MonoBehaviour
     //무적상태
     void OnDamage()
     {
-        gameManager.sliderHp.value -= 10f;    
+        GameManager.instance.sliderHp.value -= 10f;    
         gameObject.layer = 11;
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
         Invoke("OffDamage", 1);
