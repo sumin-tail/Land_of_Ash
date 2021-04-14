@@ -9889,7 +9889,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eb6ad92f80e8c04ab266b2c451ec549, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderHp: {fileID: 2003791568}
   maxHp: {fileID: 21300000, guid: 20ea37cedd7c4854cb7916368368c0eb, type: 3}
   Hp: {fileID: 21300000, guid: fb897ca10276889418d56db58df70c17, type: 3}
 --- !u!1 &1767510796
@@ -10028,7 +10027,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   jump: 15
-  gameManager: {fileID: 127247022}
 --- !u!1 &1869073034
 GameObject:
   m_ObjectHideFlags: 0
@@ -10294,7 +10292,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
