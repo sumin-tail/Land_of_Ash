@@ -62,7 +62,7 @@ public class PlayerController : MonoBehaviour
     //무적상태
     void OnDamage()
     {
-        GameManager.instance.sliderHp.value -= 10f;    
+        GameManager.instance.playerHp.value -= 10f;    
         gameObject.layer = 11;
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
         Invoke("OffDamage", 1);

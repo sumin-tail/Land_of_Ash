@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     }
     //사용방법은 GameManager.instance.~~ 로 사용하면 된다.
 
-    public Slider sliderHp;
-    public Text killCount;
+    public Slider playerHp; //플레이어 Hp바
+    public Text killCount; //킬 카운트
+    public int playerAtk; //플레이어 공격력
 }

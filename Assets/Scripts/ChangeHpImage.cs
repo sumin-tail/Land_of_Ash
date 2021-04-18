@@ -7,11 +7,8 @@ public class ChangeHpImage : MonoBehaviour
 {
     //이미지를 담을 컴포넌트 image
     private Image image;
-    //인스펙터뷰에서 채우기 위해 SerializeField 를 적용시킴
-    [SerializeField]
-    private Sprite maxHp; //풀피일때의 이미지
-    [SerializeField]
-    private Sprite Hp; //풀피가 아닐 때의 이미지
+    public Sprite maxHp; //풀피일때의 이미지
+    public Sprite Hp; //풀피가 아닐 때의 이미지
 
     void Start()
     {
@@ -21,12 +18,12 @@ public class ChangeHpImage : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.sliderHp.value == 100)
+        if (GameManager.instance.playerHp.value == 100)
         {
             image.sprite = maxHp;
         }
 
-        if (GameManager.instance.sliderHp.value < 100)
+        if (GameManager.instance.playerHp.value < 100)
         {
             image.sprite = Hp;
         }
