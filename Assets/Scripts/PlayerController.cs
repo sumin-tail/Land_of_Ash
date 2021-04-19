@@ -6,7 +6,20 @@ public class PlayerController : MonoBehaviour
 {
     //스피드랑 점프 스케일 적용하기
     public float speed = 4f;
-    public float jump = 15f;
+    public float jumpForce = 15f;
+
+    //점프
+    public LayerMask theGround;
+    public Transform groundCheck;
+    public bool onTheGround = false;
+
+    //총 발사 
+    public GameObject bulletToRight, bulletToLeft;
+    Vector2 bulletPos;
+    public float fireRate = 0.5f;
+    float nextFire = 0f;
+
+
     //리지드 바디 설정
     Rigidbody2D rb;
     //스프라이트 렌더 설정
@@ -22,8 +35,28 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        //점프
+        onTheGround = Physics2D.Linecast(transform.position, groundCheck.position, theGround);
+        if (onTheGround == true && Input.GetButtonDown("Jump"))
+        {
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        }
+
+        //총 발사
+        if (Input.GetButtonDown("Fire1") && Time.time > nextFire)
+        {
+            nextFire = Time.time + fireRate;
+            Fire();
+        }
+
+    }
+
+    private void LateUpdate()
+    {
+        //이동
         MoveMent();
     }
+
 
     void MoveMent()
     {
@@ -42,11 +75,6 @@ public class PlayerController : MonoBehaviour
         if (FaceDircetion != 0)
         {
             transform.localScale = new Vector3(FaceDircetion, 1, 1);
-        }
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            rb.velocity = new Vector2(rb.velocity.x, jump);
         }
     }
 
@@ -72,5 +100,22 @@ public class PlayerController : MonoBehaviour
     {
         gameObject.layer = 10;
         spriteRenderer.color = new Color(1, 1, 1, 1);
+    }
+
+    //총 사격
+    void Fire()
+    {
+        //총탄의 위치
+        bulletPos = transform.position;
+        if (transform.localScale.x > 0)
+        {
+            bulletPos += new Vector2(1f, -0.55f);
+            Instantiate(bulletToRight, bulletPos, Quaternion.identity);
+        }
+        else
+        {
+            bulletPos += new Vector2(-1f, -0.55f);
+            Instantiate(bulletToLeft, bulletPos, Quaternion.identity);
+        }
     }
 }

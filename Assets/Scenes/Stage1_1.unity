@@ -150,8 +150,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61ccd9b21cf191949a92fe4240ee1794, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sliderHp: {fileID: 2003791568}
+  playerHp: {fileID: 2003791568}
   killCount: {fileID: 0}
+  playerAtk: 0
 --- !u!4 &127247023
 Transform:
   m_ObjectHideFlags: 0
@@ -178,7 +179,7 @@ GameObject:
   - component: {fileID: 309854779}
   m_Layer: 8
   m_Name: Grid
-  m_TagString: Untagged
+  m_TagString: Platform
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -208,6 +209,36 @@ Transform:
   m_Children:
   - {fileID: 1292959269}
   m_Father: {fileID: 0}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &375706655
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 375706656}
+  m_Layer: 10
+  m_Name: GroundCheck
+  m_TagString: Untagged
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &375706656
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 375706655}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.437, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1767510798}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &428300181
@@ -10000,7 +10031,7 @@ GameObject:
   - component: {fileID: 1435219892}
   - component: {fileID: 1435219895}
   m_Layer: 0
-  m_Name: nextscene
+  m_Name: NextScene
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10180,6 +10211,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 519420032}
+  - {fileID: 375706656}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10232,8 +10264,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71f79014225c8c469e679a4d362e081, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4
-  jump: 15
+  speed: 7
+  jumpForce: 15
+  theGround:
+    serializedVersion: 2
+    m_Bits: 256
+  groundCheck: {fileID: 375706656}
+  onTheGround: 0
+  bulletToRight: {fileID: 4068945825268605276, guid: c5303327f3f186b4389213e83627af31,
+    type: 3}
+  bulletToLeft: {fileID: 7534125541347785800, guid: d15910ef7a9f5ed4c99a37b0a4661d2e,
+    type: 3}
+  fireRate: 0.5
 --- !u!1 &1869073034
 GameObject:
   m_ObjectHideFlags: 0
