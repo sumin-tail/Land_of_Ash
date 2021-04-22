@@ -13,7 +13,7 @@ public class BulletController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         //3초 뒤에 파괴
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 2f);
     }
 
     // Update is called once per frame
@@ -21,4 +21,15 @@ public class BulletController : MonoBehaviour
     {
         rb.velocity = new Vector2(velX, velY);
     }
+
+    //OnTriggerEnter2D는 Collider2D가 닿을때 한번 실행됨
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        //부딫힌 물체가 Totem 태그
+        if (other.tag == "Totem")
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }

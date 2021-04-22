@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4068945825268605265}
   m_Layer: 0
   m_Name: Right
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,3 +143,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fab6f5ad38035924d8147b7f5613c036, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  velX: 5

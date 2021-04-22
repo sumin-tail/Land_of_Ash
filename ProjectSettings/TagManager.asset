@@ -8,6 +8,8 @@ TagManager:
   - Flag
   - Peace
   - Platform
+  - Bullet
+  - Totem
   layers:
   - Default
   - TransparentFX

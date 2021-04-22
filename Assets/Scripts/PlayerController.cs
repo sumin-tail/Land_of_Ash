@@ -109,12 +109,12 @@ public class PlayerController : MonoBehaviour
         bulletPos = transform.position;
         if (transform.localScale.x > 0)
         {
-            bulletPos += new Vector2(1f, -0.55f);
+            bulletPos += new Vector2(0.1f, 0f);
             Instantiate(bulletToRight, bulletPos, Quaternion.identity);
         }
         else
         {
-            bulletPos += new Vector2(-1f, -0.55f);
+            bulletPos += new Vector2(-0.1f, 0f);
             Instantiate(bulletToLeft, bulletPos, Quaternion.identity);
         }
     }
