@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     //스피드랑 점프 스케일 적용하기
-    public float speed = 4f;
+    public float speed = 5f;
     public float jumpForce = 15f;
 
     //점프
@@ -15,10 +15,12 @@ public class PlayerController : MonoBehaviour
 
     //총 발사 
     public GameObject bulletToRight, bulletToLeft;
-    Vector2 bulletPos;
+    Vector3 bulletPos;
     public float fireRate = 0.5f;
     float nextFire = 0f;
 
+    //애니메이터
+    Animator anim;
 
     //리지드 바디 설정
     Rigidbody2D rb;
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         //게임 컴포넌트의 렌더 가져옴
         spriteRenderer = GetComponent<SpriteRenderer>();
+        //애니메이터 가져옴
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
         onTheGround = Physics2D.Linecast(transform.position, groundCheck.position, theGround);
         if (onTheGround == true && Input.GetButtonDown("Jump"))
         {
+            Debug.Log("jump");
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
@@ -76,6 +81,15 @@ public class PlayerController : MonoBehaviour
         {
             transform.localScale = new Vector3(FaceDircetion, 1, 1);
         }
+        //애니메이션
+        if (HorizontalMove == 0)
+        {
+            anim.SetBool("Run", false);
+        }
+        else
+        {
+            anim.SetBool("Run", true);
+        }
     }
 
     //에너미 충돌 체크
@@ -90,7 +104,7 @@ public class PlayerController : MonoBehaviour
     //무적상태
     void OnDamage()
     {
-        GameManager.instance.playerHp.value -= 10f;    
+        GameManager.instance.playerHp.value -= 50f;    
         gameObject.layer = 11;
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
         Invoke("OffDamage", 1);
@@ -109,12 +123,12 @@ public class PlayerController : MonoBehaviour
         bulletPos = transform.position;
         if (transform.localScale.x > 0)
         {
-            bulletPos += new Vector2(0.1f, 0f);
+            bulletPos += new Vector3(0.1f, 0f, 0f);
             Instantiate(bulletToRight, bulletPos, Quaternion.identity);
         }
         else
         {
-            bulletPos += new Vector2(-0.1f, 0f);
+            bulletPos += new Vector3(-0.1f, 0f, 0f);
             Instantiate(bulletToLeft, bulletPos, Quaternion.identity);
         }
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,6 +28,19 @@ public class GameManager : MonoBehaviour
         }
     }
     //사용방법은 GameManager.instance.~~ 로 사용하면 된다.
+
+    private void Update()
+    {
+        if (playerHp.value <= 0)
+        {
+            playerHp.value = 0f;
+        }
+       
+        if (playerHp.value <= 0)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
 
     public Slider playerHp; //플레이어 Hp바
     public Text killCount; //킬 카운트

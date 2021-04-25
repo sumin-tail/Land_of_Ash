@@ -64,12 +64,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\BoomMonster.cs" />
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\ChangeHpImage.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\NextScene.cs" />
+    <Compile Include="Assets\Scripts\OnTotem.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Totem.cs" />
+    <Compile Include="Assets\Tutorial\TutorialPlayer.cs" />
     <Reference Include="UnityEngine">
       <HintPath>D:/unityEngin/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

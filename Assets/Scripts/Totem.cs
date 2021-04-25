@@ -32,7 +32,7 @@ public class Totem : MonoBehaviour
         if (other.tag == "Bullet")
         {
             destroyCount++;
-            OnDamage();
+            OnDamage();      
         }
     }
 
