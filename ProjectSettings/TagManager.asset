@@ -10,6 +10,7 @@ TagManager:
   - Platform
   - Bullet
   - Totem
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX

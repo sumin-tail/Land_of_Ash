@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
         onTheGround = Physics2D.Linecast(transform.position, groundCheck.position, theGround);
         if (onTheGround == true && Input.GetButtonDown("Jump"))
         {
-            Debug.Log("jump");
             rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         }
 
@@ -99,12 +98,17 @@ public class PlayerController : MonoBehaviour
         {
             OnDamage();
         }
+
+        //if (collision.gameObject.tag == "EnemyBullet")
+        //{
+        //    OnDamage();
+        //}
     }
 
     //무적상태
     void OnDamage()
     {
-        GameManager.instance.playerHp.value -= 50f;    
+        GameManager.instance.playerHp.value -= 10f;    
         gameObject.layer = 11;
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
         Invoke("OffDamage", 1);
@@ -123,12 +127,12 @@ public class PlayerController : MonoBehaviour
         bulletPos = transform.position;
         if (transform.localScale.x > 0)
         {
-            bulletPos += new Vector3(0.1f, 0f, 0f);
+            bulletPos += new Vector3(0.2f, -0.1f, 0f);
             Instantiate(bulletToRight, bulletPos, Quaternion.identity);
         }
         else
         {
-            bulletPos += new Vector3(-0.1f, 0f, 0f);
+            bulletPos += new Vector3(-0.2f, -0.1f, 0f);
             Instantiate(bulletToLeft, bulletPos, Quaternion.identity);
         }
     }

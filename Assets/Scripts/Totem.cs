@@ -18,10 +18,9 @@ public class Totem : MonoBehaviour
 
     private void Update()
     {
-        if (destroyCount >= 5)
+        if (destroyCount >= 5 && GameManager.instance.TotemBrake == false)
         {
-            //파괴 이미지로 변경
-            spriteRenderer.sprite = destroy;
+            TotemDestroy();
         }
     }
 
@@ -46,5 +45,16 @@ public class Totem : MonoBehaviour
     void OffDamage()
     {
         spriteRenderer.color = new Color(1, 1, 1, 1);
+    }
+
+    void TotemDestroy()
+    {
+        //토템이 부서짐
+        GameManager.instance.TotemBrake = true;
+        //파괴 이미지로 변경
+        spriteRenderer.sprite = destroy;
+        //플레이어 공격력 상승
+        GameManager.instance.playerAtk++;
+        Debug.Log(GameManager.instance.playerAtk);
     }
 }
