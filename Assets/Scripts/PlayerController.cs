@@ -98,17 +98,19 @@ public class PlayerController : MonoBehaviour
         {
             OnDamage();
         }
-
-        //if (collision.gameObject.tag == "EnemyBullet")
-        //{
-        //    OnDamage();
-        //}
+    }
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "EnemyBullet")
+        {
+            OnDamage();
+        }
+ 
     }
 
     //무적상태
     void OnDamage()
     {
-        GameManager.instance.playerHp.value -= 10f;    
         gameObject.layer = 11;
         spriteRenderer.color = new Color(1, 1, 1, 0.4f);
         Invoke("OffDamage", 1);

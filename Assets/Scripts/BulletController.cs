@@ -25,17 +25,17 @@ public class BulletController : MonoBehaviour
     //OnTriggerEnter2D는 Collider2D가 닿을때 한번 실행됨
     void OnTriggerEnter2D(Collider2D other)
     {
-        //부딫힌 물체가 Totem 태그 또는 Enemy 태그
+        //부딫힌 물체가 Totem 태그
         if (other.tag == "Totem")
         {
             Destroy(gameObject);
         }
     }
 
-    //이건 콜라이즌
+    //이건 콜라이즌 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "Platform")
         {
             Destroy(gameObject);
         }

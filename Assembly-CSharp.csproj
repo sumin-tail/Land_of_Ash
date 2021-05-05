@@ -64,18 +64,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\BoomMonster.cs" />
     <Compile Include="Assets\Scripts\BulletController.cs" />
+    <Compile Include="Assets\Scripts\Button.cs" />
     <Compile Include="Assets\Scripts\ChangeHpImage.cs" />
     <Compile Include="Assets\Scripts\ChangeKillCount.cs" />
     <Compile Include="Assets\Scripts\ChangeTotemBrake.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
-    <Compile Include="Assets\Scripts\MonsterBulletController.cs" />
+    <Compile Include="Assets\Scripts\Monster\BoomMonster.cs" />
+    <Compile Include="Assets\Scripts\Monster\MonsterBulletController.cs" />
+    <Compile Include="Assets\Scripts\Monster\ThrowMonster1.cs" />
+    <Compile Include="Assets\Scripts\Monster\ThrowMonster2.cs" />
+    <Compile Include="Assets\Scripts\Monster\VineMonster1.cs" />
     <Compile Include="Assets\Scripts\NextScene.cs" />
     <Compile Include="Assets\Scripts\OnTotem.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
-    <Compile Include="Assets\Scripts\ThrowMonster1.cs" />
-    <Compile Include="Assets\Scripts\ThrowMonster2.cs" />
+    <Compile Include="Assets\Scripts\QuitGame.cs" />
+    <Compile Include="Assets\Scripts\RestartSceneButton.cs" />
     <Compile Include="Assets\Scripts\Totem.cs" />
     <Compile Include="Assets\Tutorial\TutorialPlayer.cs" />
     <Reference Include="UnityEngine">

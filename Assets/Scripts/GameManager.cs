@@ -38,5 +38,12 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+
+       
+    }
+
+    public void PlayerHP(float Dam)
+    {
+        playerHp.value -= Dam;
     }
 }

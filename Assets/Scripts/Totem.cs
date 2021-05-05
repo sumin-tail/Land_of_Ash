@@ -55,6 +55,7 @@ public class Totem : MonoBehaviour
         spriteRenderer.sprite = destroy;
         //플레이어 공격력 상승
         GameManager.instance.playerAtk++;
-        Debug.Log(GameManager.instance.playerAtk);
+        //체력 풀 회복
+        GameManager.instance.playerHp.value = 100;
     }
 }
