@@ -79,7 +79,14 @@ public class VineMonster1 : MonoBehaviour
             OnDamage();
         }
 
+        if (collision.gameObject.tag == "Player")
+        {
+            GameManager.instance.PlayerHP(7f);
+        }
+
     }
+
+
 
     void OnDamage()
     {
