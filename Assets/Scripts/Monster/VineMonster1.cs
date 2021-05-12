@@ -18,10 +18,15 @@ public class VineMonster1 : MonoBehaviour
     //플레이어 서칭
     bool find;
 
+    //애니메이션
+    Animator anim;
+
     private void Awake()
     {
         monster = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        //애니메이터 가져옴
+        anim = GetComponent<Animator>();
         hp = 10;
     }
 
@@ -46,7 +51,6 @@ public class VineMonster1 : MonoBehaviour
         if (hp <= 0)
         {
             GameManager.instance.killCount++;
-            Debug.Log("dead");
             Destroy(gameObject);
         }
 
@@ -58,6 +62,7 @@ public class VineMonster1 : MonoBehaviour
         if (other.tag == "Player")
         {
             find = true;
+            anim.SetBool("Find", true);
         }
     }
 
@@ -67,6 +72,7 @@ public class VineMonster1 : MonoBehaviour
         if (other.tag == "Player")
         {
             find = false;
+            anim.SetBool("Find", false);
             Stay();
         }
     }
@@ -103,12 +109,12 @@ public class VineMonster1 : MonoBehaviour
     //크기변경/공격
     void Attack()
     {
-        monster.size = new Vector2(0.7f, 1.5f);
+        monster.size = new Vector2(0.6f, 1.3f);
     }
 
     void Stay()
     {
-        monster.size = new Vector2(0.25f, 1.5f);
+        monster.size = new Vector2(0.3f, 1.3f);
     }
 
 }

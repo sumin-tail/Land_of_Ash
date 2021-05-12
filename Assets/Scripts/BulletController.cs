@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletController : MonoBehaviour
 {
     //왼쪽 총알은 유니티에서 -5f로 변경하기
-    public float velX = 5f;
+    public float velX = 10f;
     float velY = 0;
     Rigidbody2D rb;
 

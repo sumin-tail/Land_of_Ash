@@ -71,17 +71,24 @@
     <Compile Include="Assets\Scripts\ChangeTotemBrake.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Monster\BoomMonster.cs" />
+    <Compile Include="Assets\Scripts\Monster\Fox.cs" />
     <Compile Include="Assets\Scripts\Monster\MonsterBulletController.cs" />
+    <Compile Include="Assets\Scripts\Monster\Rabbit.cs" />
+    <Compile Include="Assets\Scripts\Monster\Snake.cs" />
     <Compile Include="Assets\Scripts\Monster\ThrowMonster1.cs" />
     <Compile Include="Assets\Scripts\Monster\ThrowMonster2.cs" />
     <Compile Include="Assets\Scripts\Monster\VineMonster1.cs" />
+    <Compile Include="Assets\Scripts\Monster\VineMonster2.cs" />
     <Compile Include="Assets\Scripts\NextScene.cs" />
     <Compile Include="Assets\Scripts\OnTotem.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
     <Compile Include="Assets\Scripts\QuitGame.cs" />
     <Compile Include="Assets\Scripts\RestartSceneButton.cs" />
+    <Compile Include="Assets\Scripts\TalkButton.cs" />
     <Compile Include="Assets\Scripts\Totem.cs" />
+    <Compile Include="Assets\Scripts\WenZi.cs" />
     <Compile Include="Assets\Tutorial\TutorialPlayer.cs" />
+    <None Include="Assets\Font\wenzi.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/unityEngin/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>

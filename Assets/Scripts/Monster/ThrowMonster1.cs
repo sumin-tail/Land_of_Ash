@@ -49,7 +49,7 @@ public class ThrowMonster1 : MonoBehaviour
         if (hp<=0)
         {
             GameManager.instance.killCount++;
-            Debug.Log("dead");
+
             Destroy(gameObject);
         }
 
