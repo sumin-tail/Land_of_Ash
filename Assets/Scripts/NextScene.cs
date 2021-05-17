@@ -29,6 +29,21 @@ public class NextScene : MonoBehaviour
         //부딫히고있는 물체가 Player 태그를 달고있고 키보드 Z 키를 누르고 있을 경우 
         if (other.tag == "Player" && Input.GetKey(KeyCode.Z))
         {
+            //다음씬 번호 저장함
+            PlayerPrefs.SetInt("Secen", nextScene);
+            //플레이어 공격력 저장함
+            PlayerPrefs.SetInt("PlayerAtk", GameManager.instance.playerAtk);
+            //조건이 맞을경우 저장갱신
+            if (GameManager.instance.killCount>=10)
+            {
+                PlayerPrefs.SetInt("Kill", PlayerPrefs.GetInt("Kill")+1);
+            }
+
+            if (GameManager.instance.TotemBrake)
+            {
+                PlayerPrefs.SetInt("Totem", PlayerPrefs.GetInt("Totem") + 1);
+            }
+
             //다음씬(숫자)로 이동함
             SceneManager.LoadScene(nextScene);
         }

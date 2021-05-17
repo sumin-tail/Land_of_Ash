@@ -9,8 +9,8 @@ public class GameManager : MonoBehaviour
     //게임매니저를 싱글톤으로 만들어줌.
     public static GameManager instance = null;
     public Slider playerHp; //플레이어 Hp바
-    public int playerAtk = 2; //플레이어 공격력
-    public int killCount = 0; //킬 카운트
+    public int playerAtk;//플레이어 공격력
+    public int killCount;//킬 카운트
     public bool TotemBrake = false;
     // 토템 킨 갯수/부순 토템갯수/학살을 완료한 수
     void Awake()
@@ -29,7 +29,14 @@ public class GameManager : MonoBehaviour
             }    
         }
     }
+
     //사용방법은 GameManager.instance.~~ 로 사용하면 된다.
+    private void Start()
+    {
+        //플레이어 공격력 초기화
+        playerAtk = PlayerPrefs.GetInt("PlayerAtk");
+        killCount = 0;
+    }
 
     private void Update()
     {
@@ -38,10 +45,9 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-
-       
     }
 
+    //플레이어 HP관리용
     public void PlayerHP(float Dam)
     {
         playerHp.value -= Dam;

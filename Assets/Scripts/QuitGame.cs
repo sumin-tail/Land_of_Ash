@@ -7,7 +7,7 @@ public class QuitGame : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
-        {//Esc 누리면 게임을 시작
+        {//Esc 누리면 게임을 종료
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -18,7 +18,7 @@ public class QuitGame : MonoBehaviour
     }
 
     public void LoadScene()
-    {//Button누리면 게임을 시작
+    {//Button누리면 게임을 종료
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else
