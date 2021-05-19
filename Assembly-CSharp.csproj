@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\ChangeHpImage.cs" />
     <Compile Include="Assets\Scripts\ChangeKillCount.cs" />
     <Compile Include="Assets\Scripts\ChangeTotemBrake.cs" />
+    <Compile Include="Assets\Scripts\CrowText.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Monster\BoomMonster.cs" />
     <Compile Include="Assets\Scripts\Monster\Fox.cs" />
@@ -87,6 +88,8 @@
     <Compile Include="Assets\Scripts\TalkButton.cs" />
     <Compile Include="Assets\Scripts\Totem.cs" />
     <Compile Include="Assets\Scripts\WenZi.cs" />
+    <Compile Include="Assets\Tutorial\Tutorial.cs" />
+    <Compile Include="Assets\Tutorial\TutorialNextScene.cs" />
     <Compile Include="Assets\Tutorial\TutorialPlayer.cs" />
     <None Include="Assets\Font\wenzi.txt" />
     <Reference Include="UnityEngine">

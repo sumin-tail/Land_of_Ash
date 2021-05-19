@@ -28,7 +28,6 @@ public class WenZi : MonoBehaviour
 
     private void OnEnable()
     {
-        
         textFinished = true;
         StartCoroutine(setTextUI());
 
@@ -43,7 +42,6 @@ public class WenZi : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Z)&& textFinished)
         {
-           
             StartCoroutine(setTextUI());
         }
     }
@@ -80,7 +78,6 @@ public class WenZi : MonoBehaviour
                 break;
         }
 
-
         for (int i = 0; i < textList[index].Length; i++)
         {
             textLabel.text += textList[index][i];
@@ -89,5 +86,6 @@ public class WenZi : MonoBehaviour
         }
         textFinished = true;
         index++;
+
     }
 }

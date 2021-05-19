@@ -33,6 +33,7 @@ public class NextScene : MonoBehaviour
             PlayerPrefs.SetInt("Secen", nextScene);
             //플레이어 공격력 저장함
             PlayerPrefs.SetInt("PlayerAtk", GameManager.instance.playerAtk);
+
             //조건이 맞을경우 저장갱신
             if (GameManager.instance.killCount>=10)
             {

@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour
         //플레이어 공격력 초기화
         playerAtk = PlayerPrefs.GetInt("PlayerAtk");
         killCount = 0;
+
+
+        Debug.Log("플레이어 공격력" + PlayerPrefs.GetInt("PlayerAtk"));
+        Debug.Log("킬카운트 " + PlayerPrefs.GetInt("Kill"));
+        Debug.Log("토템"+PlayerPrefs.GetInt("Totem"));
     }
 
     private void Update()
