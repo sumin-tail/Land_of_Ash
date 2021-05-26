@@ -32,4 +32,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BadEnding.unity
     guid: ae2e7c42d711d9d49abba84d34ad0c5f
+  - enabled: 1
+    path: Assets/Scenes/NomalEnding.unity
+    guid: e51564a3eb1e73e4c92ffa629179a00a
+  - enabled: 1
+    path: Assets/Scenes/RealEnding.unity
+    guid: 813f696966ffeb64392a9ec87aeace9f
   m_configObjects: {}
