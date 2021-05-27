@@ -29,7 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Stage1_6.unity
     guid: 694fdeb154d90c048bd41b009488af42
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/BadEnding.unity
     guid: ae2e7c42d711d9d49abba84d34ad0c5f
   - enabled: 1

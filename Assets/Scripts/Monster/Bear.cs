@@ -20,7 +20,7 @@ public class Bear : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        hp = 30;
+        hp = 100;
     }
 
     void Start()
@@ -87,7 +87,7 @@ public class Bear : MonoBehaviour
 
         if (collision.gameObject.tag == "Player")
         {
-            GameManager.instance.PlayerHP(10f);
+            GameManager.instance.PlayerHP(30f);
         }
 
     }
