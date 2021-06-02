@@ -5,20 +5,30 @@ using UnityEngine;
 public class Tutorial : MonoBehaviour
 {
     public GameObject img;
+    public GameObject backimg;
+
+    //test
+    public bool talked = true;
 
     //OnTriggerStay2D는 Collider2D가 닿아있는동안 계속 실행이 됨
     void OnTriggerStay2D(Collider2D other)
     {
-        //부딫히고있는 물체가 Player 태그를 달고있고 키보드 Z 키를 누르고 있을 경우 
-        if (other.tag == "Player" && Input.GetKey(KeyCode.Z))
+        //test
+        if (other.tag == "Player" && Input.GetKey(KeyCode.Z) && talked == true)
         {
             img.SetActive(true);
+            backimg.SetActive(true);
             Invoke("Destroy", 1f);
+            talked = false;
         }
     }
 
     void Destroy()
     {
-        img.SetActive(false);
+        Destroy(img);
+        Destroy(backimg);
+        Destroy(gameObject);
+        //img.SetActive(false);
+        //backimg.SetActive(false);
     }
 }

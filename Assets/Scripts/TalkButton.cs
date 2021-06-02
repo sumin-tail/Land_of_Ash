@@ -7,6 +7,9 @@ public class TalkButton : MonoBehaviour
     public GameObject talkUI;
     public bool touch;
 
+    //test
+    public bool talked = true;
+
     private void Start()
     {
         touch = false;
@@ -18,7 +21,7 @@ public class TalkButton : MonoBehaviour
         {
             touch = true;
         }
-      
+
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -29,9 +32,17 @@ public class TalkButton : MonoBehaviour
     }
     void Update()
     {
-        if (touch && Input.GetKeyDown(KeyCode.Z))
+        /* if (touch && Input.GetKeyDown(KeyCode.Z))
+         {
+             talkUI.SetActive(true);
+         }
+        */
+
+        //test
+        if (talked && touch && Input.GetKeyDown(KeyCode.Z))
         {
             talkUI.SetActive(true);
+            talked = false;
         }
     }
 }

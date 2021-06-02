@@ -13,6 +13,7 @@ public class Button : MonoBehaviour
         PlayerPrefs.SetInt("PlayerAtk", 2);
         PlayerPrefs.SetInt("Kill", 0);
         PlayerPrefs.SetInt("Totem", 0);
+        PlayerPrefs.SetInt("TotemOn", 0);
         SceneManager.LoadScene(1);
     }
 }

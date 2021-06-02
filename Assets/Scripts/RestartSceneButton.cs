@@ -14,6 +14,7 @@ public class RestartSceneButton : MonoBehaviour
             PlayerPrefs.SetInt("PlayerAtk", 2);
             PlayerPrefs.SetInt("Kill", 0);
             PlayerPrefs.SetInt("Totem", 0);
+            PlayerPrefs.SetInt("TotemOn", 0);
             SceneManager.LoadScene(1);
         }
         SceneManager.LoadScene(PlayerPrefs.GetInt("Secen"));

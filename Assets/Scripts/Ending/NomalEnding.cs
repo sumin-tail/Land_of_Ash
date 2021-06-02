@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class NomalEnding : MonoBehaviour
 {
@@ -20,10 +21,12 @@ public class NomalEnding : MonoBehaviour
 
     IEnumerator SpriteChange()
     {
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < 4; i++)
         {
             spriteRenderer.sprite = im[i];
             yield return new WaitForSeconds(1f);
         }
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Start");
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RealEnding : MonoBehaviour
 {
@@ -25,5 +26,8 @@ public class RealEnding : MonoBehaviour
             spriteRenderer.sprite = im[i];
             yield return new WaitForSeconds(1.5f);
         }
+
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Start");      
     }
 }

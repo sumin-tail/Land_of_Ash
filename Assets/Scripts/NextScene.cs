@@ -31,11 +31,12 @@ public class NextScene : MonoBehaviour
         {
             //다음씬 번호 저장함
             PlayerPrefs.SetInt("Secen", nextScene);
+
             //플레이어 공격력 저장함
             PlayerPrefs.SetInt("PlayerAtk", GameManager.instance.playerAtk);
 
             //조건이 맞을경우 저장갱신
-            if (GameManager.instance.killCount>=10)
+            if (GameManager.instance.killCount>=2) // 2로 해놓음 나중에 10으로 바꿀것
             {
                 PlayerPrefs.SetInt("Kill", PlayerPrefs.GetInt("Kill")+1);
             }
@@ -43,6 +44,11 @@ public class NextScene : MonoBehaviour
             if (GameManager.instance.TotemBrake)
             {
                 PlayerPrefs.SetInt("Totem", PlayerPrefs.GetInt("Totem") + 1);
+            }
+
+            if (GameManager.instance.TotemOn)
+            {
+                PlayerPrefs.SetInt("TotemOn", PlayerPrefs.GetInt("TotemOn") + 1);
             }
 
             //다음씬(숫자)로 이동함

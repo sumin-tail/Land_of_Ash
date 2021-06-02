@@ -65,16 +65,15 @@ public class Shadow : MonoBehaviour
                 case 0:
                     //난수로 어느 방향으로 움직일 것인지 설정
                     nextMove = (Random.Range(0, 2) * 2 - 1) * 2;
+                    anim.SetBool("Move", true);
                     rb.velocity = new Vector2(nextMove, rb.velocity.y);
                     transform.localScale = new Vector3(-nextMove/2, 1, 1);
                     break;
                 case 1:
-                    yield return SummonsFire();
-                    //yield return Howling();
+                    yield return Howling();
                     break;
                 case 2:
-                    yield return SummonsFire();
-                    //yield return Rush();
+                    yield return Rush();
                     break;
                 case 3:
                     SummonsBoom();
@@ -89,7 +88,6 @@ public class Shadow : MonoBehaviour
                     break;
             }
             yield return new WaitForSeconds(3f);
-
         }
     }
 
@@ -105,6 +103,7 @@ public class Shadow : MonoBehaviour
     {
         //움직이는거 멈춤
         rb.velocity = Vector2.zero;
+        anim.SetBool("Move", false);
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < 30; i++)
         {
@@ -118,14 +117,18 @@ public class Shadow : MonoBehaviour
 
     IEnumerator Rush()
     {
+        anim.SetBool("Move", false);
+        anim.SetBool("Run", true);
         yield return new WaitForSeconds(1f);
         rb.velocity = new Vector2(nextMove * 5f, 0f);
         yield return new WaitForSeconds(1f);
         rb.velocity = Vector2.zero;
+        anim.SetBool("Run", false);
     }
 
     void SummonsBoom()
     {
+        anim.SetBool("Move", false);
         for (int i = 0; i < 5; i++)
         {
             float x = Random.Range(-10f,10f);
@@ -139,6 +142,7 @@ public class Shadow : MonoBehaviour
     {
         //움직이는거 멈춤
         rb.velocity = Vector2.zero;
+        anim.SetBool("Move", false);
         for (float i = 0; i < 10; i++)
         {
             if (nextMove/2 == -1)

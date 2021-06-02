@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public int playerAtk;//플레이어 공격력
     public int killCount;//킬 카운트
     public bool TotemBrake = false;
+    public bool TotemOn = false;
     // 토템 킨 갯수/부순 토템갯수/학살을 완료한 수
     void Awake()
     {

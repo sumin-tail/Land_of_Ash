@@ -23,6 +23,7 @@ public class OnTotem : MonoBehaviour
             onTotem = 1;
             spriteRenderer.sprite = on;
             StartCoroutine("OnTotemColor");
+            GameManager.instance.TotemOn = true;
         }
     }
 
