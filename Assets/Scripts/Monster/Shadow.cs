@@ -15,13 +15,14 @@ public class Shadow : MonoBehaviour
     int hp;
     //하울링때 날아갈 프리팹
     public GameObject bulletPrefab;
-
+    //폭발생성 프리팹
     public GameObject boomPrefab;
     //바닥에 불 생성
-    //public GameObject fire;
-
+    public GameObject fire;
     //소환할 몬스터 프리팹
-    public GameObject [] monsterdeer;
+    public GameObject [] monster;
+
+    Vector3 firePos;
 
     void Awake()
     {
@@ -29,7 +30,7 @@ public class Shadow : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        hp = 100;
+        hp = 500;
     }
     void Start()
     {
@@ -68,19 +69,21 @@ public class Shadow : MonoBehaviour
                     transform.localScale = new Vector3(-nextMove/2, 1, 1);
                     break;
                 case 1:
-                    yield return Howling();
+                    yield return SummonsFire();
+                    //yield return Howling();
                     break;
                 case 2:
-                    yield return Rush();
+                    yield return SummonsFire();
+                    //yield return Rush();
                     break;
                 case 3:
                     SummonsBoom();
                     break;
                 case 4:
-                    yield return Rush();
+                    yield return SummonsFire();
                     break;
                 case 5:
-                    yield return Rush();
+                    SummonsMonster();
                     break;
                 default:
                     break;
@@ -132,21 +135,39 @@ public class Shadow : MonoBehaviour
         }
     }
 
-    //IEnumerator SummonsFire()
-    //{
-    //    for (int i = 0; i < 5; i++)
-    //    {
+    IEnumerator SummonsFire()
+    {
+        //움직이는거 멈춤
+        rb.velocity = Vector2.zero;
+        for (float i = 0; i < 10; i++)
+        {
+            if (nextMove/2 == -1)
+            {
+                firePos = transform.position;
+                firePos += new Vector3(-1f - (i / 2), -0.5f, 0f);
+                Instantiate(fire, firePos, Quaternion.identity);
+                yield return new WaitForSeconds(0.1f);
+            }
 
-    //        Instantiate(fire);
-    //        yield return new WaitForSeconds(1.0f);
-    //    }
-    //}
+            if (nextMove/2 == 1)
+            {
+                firePos = transform.position;
+                firePos += new Vector3(1f + (i / 2), -0.5f, 0f);
+                Instantiate(fire, firePos, Quaternion.identity);
+                yield return new WaitForSeconds(0.1f);
+            }
 
-    //void SummonsMonster()
-    //{
-    //    GameObject monster = Instantiate(monsterdeer[1]);
-    //    monster.transform.position = this.transform.position;
-    //}
+        }
+    }
+
+    void SummonsMonster()
+    {
+        for (int i = 0; i < 2; i++)
+        {
+            GameObject summonsMonster = Instantiate(monster[i]);
+            summonsMonster.transform.position = this.transform.position;
+        }
+    }
 
 
     //플레이어의 총에 맞거나 플레이어와 충돌했을 때

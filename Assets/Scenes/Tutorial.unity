@@ -2212,7 +2212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textLabel: {fileID: 82384846}
   faceImage: {fileID: 1058797880}
-  textFile: {fileID: 4900000, guid: ce716e3abdf2bfb46a99e98e3a491760, type: 3}
+  textFile: {fileID: 4900000, guid: 4b314320370c02549ab900bf9ab051e4, type: 3}
   index: 0
   textSpeed: 0
   face01: {fileID: 5831462238099335107, guid: 2b03458170851954682f86d6d8b16dfe, type: 3}

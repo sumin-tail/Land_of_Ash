@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\CrowText.cs" />
     <Compile Include="Assets\Scripts\Ending\NomalEnding.cs" />
     <Compile Include="Assets\Scripts\Ending\RealEnding.cs" />
+    <Compile Include="Assets\Scripts\Fire.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\Monster\Bear.cs" />
     <Compile Include="Assets\Scripts\Monster\Boom.cs" />
@@ -97,6 +98,11 @@
     <Compile Include="Assets\Tutorial\Tutorial.cs" />
     <Compile Include="Assets\Tutorial\TutorialNextScene.cs" />
     <Compile Include="Assets\Tutorial\TutorialPlayer.cs" />
+    <None Include="Assets\Font\튜토리얼1.txt" />
+    <None Include="Assets\Font\조용한 동굴-노말.txt" />
+    <None Include="Assets\Font\마지막 한 걸음-노말.txt" />
+    <None Include="Assets\Font\튜토리얼2.txt" />
+    <None Include="Assets\Font\조용한 동굴-배드.txt" />
     <None Include="Assets\Font\wenzi.txt" />
     <Reference Include="UnityEngine">
       <HintPath>D:/unityEngin/2019.4.10f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
