@@ -22,6 +22,7 @@ public class Shadow : MonoBehaviour
     //소환할 몬스터 프리팹
     public GameObject [] monster;
 
+    public GameObject traceTarget;
     Vector3 firePos;
 
     void Awake()
@@ -44,27 +45,33 @@ public class Shadow : MonoBehaviour
         while (hp>0)
         {
             int max = 3;
-            if (hp <= 70)
+            if (hp <= 350)
             {
                 max = 4;
             }
-            else if (hp <= 50)
+            else if (hp <= 250)
             {
                 max = 5;
             }
-            else if (hp <= 30)
+            else if (hp <= 150)
             {
                 max = 6;
             }
-
             int think = Random.Range(0, max);
-
             switch (think)
             {
                 //이동
                 case 0:
-                    //난수로 어느 방향으로 움직일 것인지 설정
-                    nextMove = (Random.Range(0, 2) * 2 - 1) * 2;
+                    Vector3 playerpos = traceTarget.transform.position;
+                    if (playerpos.x > transform.position.x)
+                    {
+                        nextMove = 2;
+                    }
+
+                    if (playerpos.x < transform.position.x)
+                    {
+                        nextMove = -2;
+                    }
                     anim.SetBool("Move", true);
                     rb.velocity = new Vector2(nextMove, rb.velocity.y);
                     transform.localScale = new Vector3(-nextMove/2, 1, 1);
@@ -187,6 +194,14 @@ public class Shadow : MonoBehaviour
             GameManager.instance.PlayerHP(10f);
         }
 
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            traceTarget = other.gameObject;
+        }
     }
 
     void OnDamage()
