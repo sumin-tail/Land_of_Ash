@@ -15,7 +15,7 @@ public class WenZi : MonoBehaviour
     public float textSpeed;
 
     [Header("头像")]
-    public Sprite face01, face02;
+    public Sprite face01, face02, face03;
 
     bool textFinished;
 
@@ -74,6 +74,14 @@ public class WenZi : MonoBehaviour
                 break;
             case "일레비\r":
                 faceImage.sprite = face02;
+                index++;
+                break;
+            case "꿈의 그림자\r":
+                faceImage.sprite = face03;
+                index++;
+                break;
+            case "현실의 빛\r":
+                faceImage.sprite = face03;
                 index++;
                 break;
         }

@@ -6,6 +6,7 @@ public class Tutorial : MonoBehaviour
 {
     public GameObject img;
     public GameObject backimg;
+    public GameObject lightmon;
 
     //test
     public bool talked = true;
@@ -18,6 +19,7 @@ public class Tutorial : MonoBehaviour
         {
             img.SetActive(true);
             backimg.SetActive(true);
+            lightmon.SetActive(true);
             Invoke("Destroy", 1f);
             talked = false;
         }
