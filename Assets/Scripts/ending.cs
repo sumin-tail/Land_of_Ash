@@ -11,17 +11,17 @@ public class ending : MonoBehaviour
         if (PlayerPrefs.GetInt("Kill") == 0 && PlayerPrefs.GetInt("TotemOn") == 6)
         {
             //진엔딩
-            SceneManager.LoadScene("RealEnding");
+            SceneManager.LoadScene("Real");
         }
         else if (PlayerPrefs.GetInt("Kill") == 6 && PlayerPrefs.GetInt("Totem") == 6)
         {
             //배드엔딩
-            SceneManager.LoadScene("BadEnding");
+            SceneManager.LoadScene("Bad");
         }
         else
         {
             //노말엔딩
-            SceneManager.LoadScene("NomalEnding");
+            SceneManager.LoadScene("Nomal");
         }
 
     }

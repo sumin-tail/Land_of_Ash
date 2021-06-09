@@ -8,14 +8,9 @@ public class MonsterBulletController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        rb.velocity = transform.right * -3;
         //2초 뒤에 파괴
         Destroy(gameObject, 2f);
-    }
-
-    void Update()
-    {
-        //빌드할때는 0.05f로 유니티테스트에는 0.01로
-        transform.Translate(0.05f, 0, 0);
     }
 
     void OnTriggerEnter2D(Collider2D other)

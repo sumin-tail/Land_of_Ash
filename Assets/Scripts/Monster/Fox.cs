@@ -7,6 +7,7 @@ public class Fox : MonoBehaviour
     Rigidbody2D rb;
     //스프라이트 렌더 설정
     SpriteRenderer spriteRenderer;
+    AudioSource ads;
     //애니메이션
     Animator anim;
     //다음엔 어떻게 움직일 것인지를 담을 변수
@@ -19,6 +20,7 @@ public class Fox : MonoBehaviour
         //어웨이크로 초기화 하는 거 잊지말기
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        ads = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         hp = 30;
     }
@@ -62,8 +64,14 @@ public class Fox : MonoBehaviour
 
         if (hp <= 0)
         {
-            GameManager.instance.killCount++;
-            Destroy(gameObject);
+            if (ads.isPlaying == false)
+            {
+                GameManager.instance.killCount++;
+                ads.Play();
+                Destroy(gameObject, 1f);
+                spriteRenderer.enabled = false;
+                tag = "Untagged";
+            }
         }
     }
 

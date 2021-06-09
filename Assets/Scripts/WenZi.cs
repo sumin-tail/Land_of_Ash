@@ -81,7 +81,7 @@ public class WenZi : MonoBehaviour
                 index++;
                 break;
             case "현실의 빛\r":
-                faceImage.sprite = face03;
+                faceImage.sprite = face02;
                 index++;
                 break;
         }
@@ -95,4 +95,6 @@ public class WenZi : MonoBehaviour
         textFinished = true;
         index++;
     }
+
+
 }

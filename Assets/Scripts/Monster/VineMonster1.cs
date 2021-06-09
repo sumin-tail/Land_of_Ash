@@ -6,6 +6,7 @@ public class VineMonster1 : MonoBehaviour
 {
     //콜라이더 사이즈 변경용
     public BoxCollider2D monster;
+    AudioSource ads;
     //스프라이트 렌더 설정
     SpriteRenderer spriteRenderer;
 
@@ -25,6 +26,7 @@ public class VineMonster1 : MonoBehaviour
     {
         monster = GetComponent<BoxCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        ads = GetComponent<AudioSource>();
         //애니메이터 가져옴
         anim = GetComponent<Animator>();
         hp = 10;
@@ -50,8 +52,14 @@ public class VineMonster1 : MonoBehaviour
 
         if (hp <= 0)
         {
-            GameManager.instance.killCount++;
-            Destroy(gameObject);
+            if (ads.isPlaying == false)
+            {
+                GameManager.instance.killCount++;
+                ads.Play();
+                Destroy(gameObject, 1f);
+                spriteRenderer.enabled = false;
+                tag = "Untagged";
+            }
         }
 
     }

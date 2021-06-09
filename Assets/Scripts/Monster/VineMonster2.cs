@@ -6,13 +6,14 @@ public class VineMonster2 : MonoBehaviour
 {
     //스프라이트 렌더 설정
     SpriteRenderer spriteRenderer;
-
+    AudioSource ads;
     //몬스터 hp
     int hp;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        ads = GetComponent<AudioSource>();
         hp = 10;
     }
 
@@ -20,8 +21,14 @@ public class VineMonster2 : MonoBehaviour
     {
         if (hp <= 0)
         {
-            GameManager.instance.killCount++;
-            Destroy(gameObject);
+            if (ads.isPlaying == false)
+            {
+                GameManager.instance.killCount++;
+                ads.Play();
+                Destroy(gameObject, 1f);
+                spriteRenderer.enabled = false;
+                tag = "Untagged";
+            }
         }
     }
 

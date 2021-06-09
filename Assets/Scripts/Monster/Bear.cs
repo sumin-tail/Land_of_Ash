@@ -7,6 +7,7 @@ public class Bear : MonoBehaviour
     Rigidbody2D rb;
     //스프라이트 렌더 설정
     SpriteRenderer spriteRenderer;
+    AudioSource ads;
     //애니메이션
     Animator anim;
     //다음엔 어떻게 움직일 것인지를 담을 변수
@@ -20,6 +21,7 @@ public class Bear : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        ads = GetComponent<AudioSource>();
         hp = 100;
     }
 
@@ -63,8 +65,14 @@ public class Bear : MonoBehaviour
 
         if (hp <= 0)
         {
-            GameManager.instance.killCount++;
-            Destroy(gameObject);
+            if (ads.isPlaying == false)
+            {
+                GameManager.instance.killCount++;
+                ads.Play();
+                Destroy(gameObject, 1f);
+                spriteRenderer.enabled = false;
+                tag = "Untagged";
+            }
         }
     }
 

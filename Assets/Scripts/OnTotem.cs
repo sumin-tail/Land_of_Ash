@@ -6,6 +6,7 @@ public class OnTotem : MonoBehaviour
 {
     //spriteRenderer를 담을 컴포넌트
     SpriteRenderer spriteRenderer;
+    AudioSource ads;
     public Sprite on; //on 이미지를 담을 Sprite 변수
     public int onTotem = 0; //토템이 on 상태인지 아닌지 확인용
 
@@ -13,6 +14,7 @@ public class OnTotem : MonoBehaviour
     {
         //게임오브젝트에있는 SpriteRenderer 컴포넌트 가져옴
         spriteRenderer = GetComponent<SpriteRenderer>();
+        ads = GetComponent<AudioSource>();
     }
 
     void OnTriggerStay2D(Collider2D other)
@@ -20,6 +22,7 @@ public class OnTotem : MonoBehaviour
         //부딪히고있는 물체가 Player 태그를 달고있고 키보드 Z 키를 눌렀으며 토템이 on 상태가 아닐때 
         if (other.tag == "Player" && Input.GetKey(KeyCode.Z) && onTotem!=1)
         {
+            ads.Play();
             onTotem = 1;
             spriteRenderer.sprite = on;
             StartCoroutine("OnTotemColor");

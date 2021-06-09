@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     //게임매니저를 싱글톤으로 만들어줌.
     public static GameManager instance = null;
     public Slider playerHp; //플레이어 Hp바
+    public Slider BossHP;
     public int playerAtk;//플레이어 공격력
     public int killCount;//킬 카운트
     public bool TotemBrake = false;
@@ -39,9 +40,9 @@ public class GameManager : MonoBehaviour
         killCount = 0;
 
 
-        Debug.Log("플레이어 공격력" + PlayerPrefs.GetInt("PlayerAtk"));
-        Debug.Log("킬카운트 " + PlayerPrefs.GetInt("Kill"));
-        Debug.Log("토템"+PlayerPrefs.GetInt("Totem"));
+        //Debug.Log("플레이어 공격력" + PlayerPrefs.GetInt("PlayerAtk"));
+        //Debug.Log("킬카운트 " + PlayerPrefs.GetInt("Kill"));
+        //Debug.Log("토템"+PlayerPrefs.GetInt("Totem"));
     }
 
     private void Update()

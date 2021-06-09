@@ -6,6 +6,7 @@ public class ThrowMonster1 : MonoBehaviour
 {
     //스프라이트 렌더 설정
     SpriteRenderer spriteRenderer;
+    AudioSource ads;
     public GameObject bullet;
     //a몬스터 총알 위치 설정
     Vector3 bulletPos;
@@ -22,6 +23,7 @@ public class ThrowMonster1 : MonoBehaviour
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        ads = GetComponent<AudioSource>();
         hp = 10;
         bulletPos = transform.position;
         bulletPos += new Vector3(0f, 0f, -1f);
@@ -48,9 +50,15 @@ public class ThrowMonster1 : MonoBehaviour
 
         if (hp<=0)
         {
-            GameManager.instance.killCount++;
-
-            Destroy(gameObject);
+            if (ads.isPlaying == false)
+            {
+                GameManager.instance.killCount++;
+                ads.Play();
+                Destroy(gameObject, 1f);
+                spriteRenderer.enabled = false;
+                tag = "Untagged";
+            }
+          
         }
 
     }

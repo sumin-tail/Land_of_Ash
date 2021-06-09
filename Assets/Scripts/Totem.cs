@@ -7,6 +7,7 @@ public class Totem : MonoBehaviour
 {
     //spriteRenderer를 담을 컴포넌트
     SpriteRenderer spriteRenderer;
+    AudioSource ads;
     public Sprite destroy; //파괴 이미지를 담을 Sprite 변수 선언
     int destroyCount=0;
 
@@ -14,6 +15,7 @@ public class Totem : MonoBehaviour
     {
         //게임오브젝트에있는 SpriteRenderer 컴포넌트 가져옴
         spriteRenderer = GetComponent<SpriteRenderer>();
+        ads = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -49,6 +51,7 @@ public class Totem : MonoBehaviour
 
     void TotemDestroy()
     {
+        ads.Play();
         //토템이 부서짐
         GameManager.instance.TotemBrake = true;
         //파괴 이미지로 변경

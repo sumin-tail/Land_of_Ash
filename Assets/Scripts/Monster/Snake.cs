@@ -8,6 +8,7 @@ public class Snake : MonoBehaviour
     //스프라이트 렌더 설정
     SpriteRenderer spriteRenderer;
     //애니메이션
+    AudioSource ads;
     Animator anim;
     //콜라이더 사이즈 변경용
     public BoxCollider2D monster;
@@ -21,6 +22,7 @@ public class Snake : MonoBehaviour
         //어웨이크로 초기화 하는 거 잊지말기
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        ads = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         monster = GetComponent<BoxCollider2D>();
         hp = 20;
@@ -65,8 +67,14 @@ public class Snake : MonoBehaviour
 
         if (hp <= 0)
         {
-            GameManager.instance.killCount++;
-            Destroy(gameObject);
+            if (ads.isPlaying == false)
+            {
+                GameManager.instance.killCount++;
+                ads.Play();
+                Destroy(gameObject, 1f);
+                spriteRenderer.enabled = false;
+                tag = "Untagged";
+            }
         }
     }
 

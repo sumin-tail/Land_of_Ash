@@ -6,12 +6,14 @@ public class Boom : MonoBehaviour
 {
     //콜라이더 사이즈 변경용
     public CircleCollider2D boom;
+    AudioSource ads;
     //스프라이트 렌더 설정
     SpriteRenderer spriteRenderer;
 
     private void Awake()
     {
         boom = GetComponent<CircleCollider2D>();
+        ads = GetComponent<AudioSource>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
     }
@@ -31,14 +33,15 @@ public class Boom : MonoBehaviour
             yield return new WaitForSeconds(0.2f);
         }
         boom.radius = 0.4f;
-        Destroy(gameObject, 0.1f);
+        ads.Play();
+        Destroy(gameObject, 0.2f);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
-            GameManager.instance.PlayerHP(10f);
+            GameManager.instance.PlayerHP(20f);
         }
     }
 

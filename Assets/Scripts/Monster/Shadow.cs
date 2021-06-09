@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Shadow : MonoBehaviour
 {
@@ -31,12 +32,17 @@ public class Shadow : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        hp = 500;
+        hp = 500; //500임
     }
     void Start()
     {
         //어웨이크가 무사히 다 끝나고 난 뒤 함수호출
         StartCoroutine(BossThink());
+    }
+
+    private void Update()
+    {
+        GameManager.instance.BossHP.value = hp;
     }
 
     IEnumerator BossThink()
@@ -58,11 +64,45 @@ public class Shadow : MonoBehaviour
                 max = 6;
             }
             int think = Random.Range(0, max);
+
+            Vector3 playerpos = Vector3.zero;
+
+            if (traceTarget != null)
+            {
+                playerpos = traceTarget.transform.position;
+            }
+
             switch (think)
             {
                 //이동
                 case 0:
-                    Vector3 playerpos = traceTarget.transform.position;
+                    for (int i = 0; i < 30; i++)
+                    {
+                        if (traceTarget != null)
+                        {
+                            playerpos = traceTarget.transform.position;
+                        }
+
+                        if (playerpos.x > transform.position.x)
+                        {
+                            nextMove = 2;
+                        }
+
+                        if (playerpos.x < transform.position.x)
+                        {
+                            nextMove = -2;
+                        }
+                        anim.SetBool("Move", true);
+                        rb.velocity = new Vector2(nextMove, rb.velocity.y);
+                        transform.localScale = new Vector3(-nextMove / 2, 1, 1);
+                        yield return new WaitForSeconds(0.1f);
+                    }
+                    break;
+                case 1:
+                    yield return Howling();
+                    yield return new WaitForSeconds(3f);
+                    break;
+                case 2:
                     if (playerpos.x > transform.position.x)
                     {
                         nextMove = 2;
@@ -72,29 +112,26 @@ public class Shadow : MonoBehaviour
                     {
                         nextMove = -2;
                     }
-                    anim.SetBool("Move", true);
-                    rb.velocity = new Vector2(nextMove, rb.velocity.y);
-                    transform.localScale = new Vector3(-nextMove/2, 1, 1);
-                    break;
-                case 1:
-                    yield return Howling();
-                    break;
-                case 2:
+                    transform.localScale = new Vector3(-nextMove / 2, 1, 1);
                     yield return Rush();
+                    yield return new WaitForSeconds(3f);
                     break;
                 case 3:
                     SummonsBoom();
+                    yield return new WaitForSeconds(3f);
                     break;
                 case 4:
                     yield return SummonsFire();
+                    yield return new WaitForSeconds(3f);
                     break;
                 case 5:
                     SummonsMonster();
+                    yield return new WaitForSeconds(3f);
                     break;
                 default:
                     break;
             }
-            yield return new WaitForSeconds(3f);
+            
         }
     }
 
@@ -102,6 +139,7 @@ public class Shadow : MonoBehaviour
     {
         if (hp <= 0)
         {
+            SceneManager.LoadScene("BadL");
             Destroy(gameObject);
         }
     }
@@ -111,6 +149,7 @@ public class Shadow : MonoBehaviour
         //움직이는거 멈춤
         rb.velocity = Vector2.zero;
         anim.SetBool("Move", false);
+        anim.SetBool("H", true);
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < 30; i++)
         {
@@ -120,6 +159,7 @@ public class Shadow : MonoBehaviour
             bullet.transform.eulerAngles = new Vector3(0, 0, i * 12); //돌려서 앞으로 나가게 해줌 eulerAngles이 각도 설정해 주는거 
             //각도는 360도 니까 360나누기 총알갯수 30 해서 12 나옴 i*12 도 해서 12도씩 돌아가있는 총알 생성
         }
+        anim.SetBool("H", false);
     }
 
     IEnumerator Rush()
@@ -196,6 +236,7 @@ public class Shadow : MonoBehaviour
 
     }
 
+    //플레이어 위치
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")

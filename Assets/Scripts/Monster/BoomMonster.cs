@@ -6,6 +6,7 @@ public class BoomMonster : MonoBehaviour
 {
     //콜라이더 사이즈 변경용
     public CapsuleCollider2D boom;
+    AudioSource ads;
     //스프라이트 렌더 설정
     SpriteRenderer spriteRenderer;
 
@@ -13,6 +14,7 @@ public class BoomMonster : MonoBehaviour
     {
         boom = GetComponent<CapsuleCollider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        ads = GetComponent<AudioSource>();
     }
 
     //닿으면 한번 실행 됨
@@ -43,12 +45,12 @@ public class BoomMonster : MonoBehaviour
             spriteRenderer.color = new Color(1, 1, 1, 1);
             yield return new WaitForSeconds(0.1f);
         }
-
     }
 
     void Boom()
     {
         boom.size = new Vector2(1f, 0.4f);
+        ads.Play();
         Destroy(gameObject, 0.1f);
     }
 

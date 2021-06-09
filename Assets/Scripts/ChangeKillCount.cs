@@ -17,7 +17,7 @@ public class ChangeKillCount : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.killCount>=2)
+        if (GameManager.instance.killCount>=5)
         {
             image.sprite = kill;
         }
