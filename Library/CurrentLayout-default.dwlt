@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 875, y: 542}
+  m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 1
 --- !u!114 &2
@@ -112,10 +112,17 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 947
+<<<<<<< HEAD
+  m_MinSize: {x: 679, y: 492}
+  m_MaxSize: {x: 14002, y: 14042}
+  vertical: 0
+  controlID: 130
+=======
   m_MinSize: {x: 678, y: 492}
   m_MaxSize: {x: 14001, y: 14042}
   vertical: 0
   controlID: 144
+>>>>>>> parent of 9391a45 (69)
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -140,7 +147,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
+<<<<<<< HEAD
+  controlID: 58
+=======
   controlID: 61
+>>>>>>> parent of 9391a45 (69)
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -165,7 +176,11 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
+<<<<<<< HEAD
+  controlID: 59
+=======
   controlID: 62
+>>>>>>> parent of 9391a45 (69)
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -267,8 +282,8 @@ MonoBehaviour:
     y: 0
     width: 389
     height: 947
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -325,8 +340,8 @@ MonoBehaviour:
     vZoomLockedByDefault: 0
     m_HBaseRangeMin: -575
     m_HBaseRangeMax: 575
-    m_VBaseRangeMin: -266
-    m_VBaseRangeMax: 266
+    m_VBaseRangeMin: -276.5
+    m_VBaseRangeMax: 276.5
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -343,11 +358,11 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 21
+      y: 0
       width: 1150
-      height: 532
+      height: 553
     m_Scale: {x: 1, y: 1}
-    m_Translation: {x: 575, y: 266}
+    m_Translation: {x: 575, y: 276.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
@@ -355,9 +370,9 @@ MonoBehaviour:
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
       x: -575
-      y: -266
+      y: -276.5
       width: 1150
-      height: 532
+      height: 553
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_LastWindowPixelSize: {x: 1150, y: 553}
@@ -395,9 +410,15 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 5efbffff
+=======
       m_SelectedIDs: e43b0000
       m_LastClickedID: 0
       m_ExpandedIDs: e6e1ffff56f1ffff64f1ffff8ef9ffff9cf9ffff02faffff14faffff22faffff5efbffff1c4700006c47000076470000
+>>>>>>> parent of 9391a45 (69)
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -459,7 +480,11 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: -3.873676, y: 1.0205029, z: -6.466186}
     speed: 2
+<<<<<<< HEAD
+    m_Value: {x: -4.811079, y: -1.05718, z: -93.13271}
+=======
     m_Value: {x: -3.9923568, y: 0.885966, z: -6.440713}
+>>>>>>> parent of 9391a45 (69)
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -511,7 +536,11 @@ MonoBehaviour:
   m_Size:
     m_Target: 5.913751
     speed: 2
+<<<<<<< HEAD
+    m_Value: 7.5168853
+=======
     m_Value: 5.659092
+>>>>>>> parent of 9391a45 (69)
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -767,20 +796,34 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
+<<<<<<< HEAD
+    - Assets/Sprites/BackGround
+  m_ViewMode: 1
+  m_StartGridSize: 64
+  m_LastFolders:
+  - Assets/Sprites/BackGround
+=======
     - Assets/Sprites/Monster
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
   - Assets/Sprites/Monster
+>>>>>>> parent of 9391a45 (69)
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\HOME\Desktop\Land_of_Ash
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
+<<<<<<< HEAD
+    m_SelectedIDs: 203b0000
+    m_LastClickedID: 15136
+    m_ExpandedIDs: 00000000083b00001a3b000000ca9a3b
+=======
     m_SelectedIDs: e43b0000
     m_LastClickedID: 15332
     m_ExpandedIDs: 00000000c23b0000c43b000000ca9a3b
+>>>>>>> parent of 9391a45 (69)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: Prefab
@@ -808,7 +851,11 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
+<<<<<<< HEAD
+    m_ExpandedIDs: 00000000083b0000
+=======
     m_ExpandedIDs: 00000000c23b0000c43b0000
+>>>>>>> parent of 9391a45 (69)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -836,7 +883,11 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
+<<<<<<< HEAD
+    m_ExpandedInstanceIDs: c62300004cdfffff22420000544100001a6c0000983c000030ce0100c03c00005a3b0000c43c0000243d0000bc3d0000e43b0000f83b0000
+=======
     m_ExpandedInstanceIDs: c62300004cdfffff22420000544100001a6c0000983c000030ce0100c03c00005a3b0000c43c0000243d0000
+>>>>>>> parent of 9391a45 (69)
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
