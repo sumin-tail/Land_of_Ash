@@ -94,6 +94,5 @@ public class WenZi : MonoBehaviour
         }
         textFinished = true;
         index++;
-
     }
 }
